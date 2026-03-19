@@ -1,11 +1,13 @@
 spring:
   profiles:
-    active: local
+    active: ${PROFILE}
 
-# 스케줄러 설정 추가
+openapi:
+  uri: ${OPENAPI_URI}
+  key: ${OPENAPI_KEY}
+
 findex:
   scheduler:
     auto-sync:
-      # 매일 자정 (0초 0시 0분) 실행
       cron: "0 0 0 * * *"
-      # cron: "*/10 * * * * *"  # 10초마다 실행 (test)
+
