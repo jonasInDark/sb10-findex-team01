@@ -27,10 +27,11 @@ public class AutoSyncConfig extends BaseEntity {
 
   // 생성자
   // 자동 연동 활성화
+  @Builder.Default
   @Column(name = "enabled", nullable = false)
   private boolean enabled = false;
 
-  public AutoSyncConfig(IndexInfo indexInfo){
+  public AutoSyncConfig(IndexInfo indexInfo) {
     this.indexInfo = indexInfo;
   }
 
