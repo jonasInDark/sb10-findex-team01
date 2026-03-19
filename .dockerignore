@@ -1,0 +1,23 @@
+# 1. 빌드 및 종속성 관련 (이미 빌드된 결과물만 필요함)
+.gradle/
+build/
+!build/libs/*.jar
+bin/
+out/
+
+# 2. 소스 코드 및 개발 도구 (실행 환경에는 필요 없음)
+src/
+.idea/
+.vscode/
+*.iml
+.env
+.gitignore
+README.md
+
+# 3. GitHub Actions 및 배포 설정
+.github/
+Dockerfile
+.dockerignore
+
+# 4. 기타
+HELP.md

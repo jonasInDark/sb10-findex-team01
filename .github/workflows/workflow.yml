@@ -18,15 +18,15 @@ jobs:
 
       - name: Build with Gradle
         env:
-          PROD_DB_URL: ${{ secrets.DB_URL }}
-          PROD_DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          PROD_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_HOST: ${{secrets.DB_HOST}}
+          DB_PORT: ${{secrets.DB_PORT}}
+          DB_NAME: ${{secrets.DB_NAME}}
+          DB_USERNAME: ${{secrets.DB_USERNAME}}
+          DB_PASSWORD: ${{secrets.DB_PASSWORD}}
           OPENAPI_URI: ${{secrets.OPENAPI_URI}}
           OPENAPI_KEY: ${{secrets.OPENAPI_KEY}}
-        run: ./gradlew bootJar -Dspring.profiles.active=prod
-
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli
+          APP_PORT: 8080
+        run: ./gradlew bootJar -x test
 
       - name: Deploy to Railway
         env:
